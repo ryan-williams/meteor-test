@@ -20,7 +20,7 @@ if (Meteor.isClient) {
   Meteor.publish("test", function() {
     return Test.find({}, {
       sort: { _id: -1 },
-      limit: 100
+      //limit: 1000
     });
   });
 }
