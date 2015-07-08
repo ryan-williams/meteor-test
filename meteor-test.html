@@ -4,31 +4,4 @@
 
 <body>
   <div id="root"></div>
-  <!--{{> table}}-->
 </body>
-
-<template name="table">
-  <div>
-    <h3>num: {{num}}</h3>
-  </div>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-    <tr>
-      <th>_id</th>
-      <th>a</th>
-      <th>b</th>
-      <th>c</th>
-    </tr>
-    </thead>
-    <tbody>
-    {{#each records}}
-    <tr>
-      <td>{{_id}}</td>
-      <td>{{a}}</td>
-      <td>{{b}}</td>
-      <td>{{c}}</td>
-    </tr>
-    {{/each}}
-    </tbody>
-  </table>
-</template>
