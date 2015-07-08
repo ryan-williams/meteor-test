@@ -22,6 +22,18 @@ if (Meteor.isClient) {
       }
     });
 
+    var skipHandle = Test.find({}, { skip: 1 }).observeChanges({
+      added: function(_id, t) {
+        console.log("skip added: ", _id);
+      },
+      changed: function(_id, fields) {
+        console.log("skip changed: ", _id);
+      },
+      removed: function(_id) {
+        console.log("skip removed: ", _id);
+      }
+    });
+
     var sortLimitHandle = Test.find({}, { sort: { _id: 1 }, limit: 100 }).observeChanges({
       added: function(_id, t) {
         console.log("sort-limit added: ", _id);
@@ -50,6 +62,7 @@ if (Meteor.isClient) {
 
     this.onStop(function() {
       limitHandle.stop();
+      skipHandle.stop();
       sortLimitHandle.stop();
       noLimitHandle.stop();
     });
